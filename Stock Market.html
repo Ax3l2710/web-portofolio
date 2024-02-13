@@ -396,7 +396,7 @@ fig.show()</code>
                 </li>
               </ol>
 
-              <h5>Insight:</h5>
+              <h5>Actionable Insight:</h5>
               <ol>
                 <li>
                   The overall trend from September 2022 to July 2023 is upward,
@@ -435,7 +435,7 @@ fig.show()</code>
               </ol>
               <hr />
 
-              <h3>Vizualizing AAPL Candle Stick</h3>
+              <h3>Vizualizing AMZN Candle Stick</h3>
 
               <pre><code># Creating a subset with the last 250 records
 df_subset = df_AMZN[-250:].copy()
@@ -517,6 +517,189 @@ layout = go.Layout(
                   ><img src="images/01-AMZN Stock.png" alt=""
                 /></span>
               </div>
+
+              <h5>AMZN Candle Stick Results:</h5>
+              <ol>
+                <li>
+                  There was a significant price drop around November 2022,
+                  followed by a recovery.g, closing, high, and low prices for a
+                  given time period.
+                </li>
+                <li>
+                  The 10-day and 20-day moving averages have been trending
+                  upwards since around January 2023, indicating a bullish trend.
+                </li>
+                <li>
+                  The volume has been relatively stable, with no extreme spikes,
+                  which suggests that the price movement is not due to
+                  short-term speculative trading.
+                </li>
+              </ol>
+
+              <h5>Actionable Insight:</h5>
+              <ol>
+                <li>
+                  The upward trend in both the 10-day and 20-day moving averages
+                  suggests a positive momentum in the stock price.
+                </li>
+                <li>
+                  The lack of extreme volume spikes indicates that the current
+                  trend might be sustainable in the short term.
+                </li>
+              </ol>
+
+              <h5>Recommendations:</h5>
+              <ol>
+                <li>
+                  If you are considering a short to medium-term investment and
+                  believe in the company's fundamentals, the current trend
+                  suggests it might be a good time to enter a position.
+                </li>
+                <li>
+                  However, always consider the latest market news, the company's
+                  financial health, and your investment strategy before making
+                  any decisions. It's also advisable to look for any potential
+                  resistance levels or signs of trend reversal before investing.
+                </li>
+              </ol>
+              <hr />
+
+              <h3>Vizualizing TSLA Candle Stick</h3>
+
+              <pre><code># Creating a subset with the last 250 records
+df_subset = df_TSLA[-250:].copy()
+                
+# Calculate moving averages
+df_subset['ma10'] = df_subset['close'].rolling(window=10).mean()
+df_subset['ma20'] = df_subset['close'].rolling(window=20).mean()
+                
+# Determine the volume color
+df_subset['color'] = df_subset.apply(lambda row: 'green' if row['close'] >= row['open'] else 'red', axis=1)
+                
+# Trace for candlestick
+trace1 = go.Candlestick(
+  x=df_subset['date'],
+  open=df_subset['open'],
+  high=df_subset['high'],
+  low=df_subset['low'],
+  close=df_subset['close'],
+  name='Price',
+  yaxis='y1'
+)
+                
+# Trace for volume
+trace2 = go.Bar(
+  x=df_subset['date'],
+  y=df_subset['volume'],
+  marker=dict(color=df_subset['color']),
+  name='Volume',
+  yaxis='y2'
+)
+                
+# Trace for the 20-day moving average of volume
+trace3 = go.Scatter(
+  x=df_subset['date'],
+  y=df_subset['avg_vol_20d'],
+  mode='lines',
+  line=dict(color='grey', width=1, dash='dash'),
+  name='20-day Volume MA',
+  yaxis='y2'
+)
+                
+# Trace for the 10-day moving average of price
+trace4 = go.Scatter(
+  x=df_subset['date'],
+  y=df_subset['ma10'],
+  mode='lines',
+  line=dict(color='royalblue', width=0.7, dash='dash'),
+  name='10-day MA',
+  yaxis='y1'
+)
+                
+# Trace for the 20-day moving average of price
+trace5 = go.Scatter(
+  x=df_subset['date'],
+  y=df_subset['ma20'],
+  mode='lines',
+  line=dict(color='blue', width=0.7, dash='dash'),
+  name='20-day MA',
+  yaxis='y1'
+)
+                
+# Defining the layout
+layout = go.Layout(
+  title={'text': 'TSLA Candlestick Chart with Plotly', 'x': 0.5, 'y':0.9},
+  xaxis=dict(title='Date'),
+  yaxis=dict(title='Price ($)', domain=[0.35, 1]),
+  yaxis2=dict(title='Volume', domain=[0, 0.3], side='left'),
+  xaxis_rangeslider_visible=False,
+  barmode='overlay',
+  legend=dict(orientation="h", yanchor="bottom", y=-0.15, xanchor="center", x=0.5)
+)
+                
+                
+# Creating and showing the figure
+  fig = go.Figure(data=[trace1, trace2, trace3, trace4, trace5], layout=layout)
+  fig.show()</code></pre>
+              <div class="col-4">
+                <span class="image fit"
+                  ><img src="images/01-TSLA.png" alt=""
+                /></span>
+              </div>
+              <h5>TSLA Candle Stick Results:</h5>
+              <ol>
+                <li>
+                  There was a significant downtrend until around the beginning
+                  of 2023, where the price reached a low point.
+                </li>
+                <li>
+                  Following the low point, there was a recovery with the price
+                  trending upwards, crossing both the 10-day and 20-day moving
+                  averages.
+                </li>
+                <li>
+                  The moving averages have acted as support and resistance
+                  levels at various points.
+                </li>
+                <li>
+                  The volume shows spikes on certain days, which could correlate
+                  with significant price movements or news events.
+                </li>
+              </ol>
+
+              <h5>Actionable Insight:</h5>
+              <ol>
+                <li>
+                  The crossover of the price above the 10-day and 20-day moving
+                  averages could have been a bullish signal, suggesting a
+                  potential entry point for a long position.
+                </li>
+                <li>
+                  The volume spikes could be investigated further to understand
+                  if they are associated with news events or earnings reports,
+                  which could affect the stock's future performance.
+                </li>
+              </ol>
+
+              <h5>Recommendations:</h5>
+              <ol>
+                <li>
+                  Monitor the stock for stability above the 20-day moving
+                  average to confirm the continuation of the uptrend.
+                </li>
+                <li>
+                  Look for high volume days that coincide with price increases
+                  as potential confirmation of bullish sentiment.
+                </li>
+                <li>
+                  Consider setting stop-loss orders below the moving averages to
+                  protect against potential downturns.
+                </li>
+                <li>
+                  Stay informed on company news and earnings reports, as these
+                  can significantly impact stock performance.
+                </li>
+              </ol>
             </section>
           </div>
         </section>
