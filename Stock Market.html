@@ -48,6 +48,10 @@
         <section class="wrapper style5">
           <div class="inner">
             <section class="section">
+              <h3>Skills</h3>
+              <p>| Data Visualizations | Phyton | Candle Stick Analysis |</p>
+              <hr />
+
               <h3>Background</h3>
               <p>
                 In analyzing the US stock market, particularly focusing on Apple
@@ -106,7 +110,15 @@
               </ul>
               <hr />
 
-              <h3>Vizualizing Volality</h3>
+              <h3>Method</h3>
+              <ol>
+                <li>Visualizing Volality</li>
+                <li>Visualizing Stock Price</li>
+                <li>Visualizing Candle Stick</li>
+              </ol>
+              <hr />
+
+              <h3>Visualizing Volality</h3>
 
               <pre><code>import plotly.graph_objects as go
 
@@ -141,7 +153,7 @@ fig1.show()</code></pre>
                 /></span>
               </div>
 
-              <h5>Volality Analysis Results:</h5>
+              <h3>Volality Analysis Results:</h3>
               <ol>
                 <li>
                   The plot indicates different volatility levels for the three
@@ -160,7 +172,7 @@ fig1.show()</code></pre>
                 </li>
               </ol>
 
-              <h5>Investment Strategy:</h5>
+              <h3>Investment Strategy:</h3>
               <ol>
                 <li>
                   For risk-averse investors, AAPL might be the preferred stock
@@ -177,7 +189,7 @@ fig1.show()</code></pre>
                 </li>
               </ol>
 
-              <h5>Recommendations:</h5>
+              <h3>Recommendations:</h3>
               <p>
                 Investors should consider their risk tolerance, investment
                 horizon, and the overall market conditions when making
@@ -188,7 +200,7 @@ fig1.show()</code></pre>
               </p>
               <hr />
 
-              <h3>Vizualizing Stock Price</h3>
+              <h3>Visualizing Stock Price</h3>
 
               <pre><code># Setting up the figure and axes
 fig, ax = plt.subplots(figsize=(16, 9))
@@ -216,7 +228,7 @@ plt.show()</code></pre>
                   ><img src="images/01-Stock Price.png" alt=""
                 /></span>
               </div>
-              <h5>Insight:</h5>
+              <h3>Insight:</h3>
               <ol>
                 <li>
                   All three stocks show a general upward trend over time,
@@ -244,7 +256,7 @@ plt.show()</code></pre>
                 </li>
               </ol>
 
-              <h5>Recommendations:</h5>
+              <h3>Recommendations:</h3>
               <ol>
                 <li>
                   For investors looking for potentially higher growth with
@@ -355,7 +367,7 @@ fig.show()</code>
                   ><img src="images/01-AAPL Stock.png" alt=""
                 /></span>
               </div>
-              <h5>AAPL Candle Stick Results:</h5>
+              <h3>AAPL Candle Stick Results:</h3>
               <ol>
                 <li>
                   The candlestick chart shows the price movement of AAPL stock
@@ -388,7 +400,7 @@ fig.show()</code>
                 </li>
               </ol>
 
-              <h5>Actionable Insight:</h5>
+              <h3>Actionable Insight:</h3>
               <ol>
                 <li>
                   The overall trend from September 2022 to July 2023 is upward,
@@ -407,7 +419,7 @@ fig.show()</code>
                 </li>
               </ol>
 
-              <h5>Recommendations:</h5>
+              <h3>Recommendations:</h3>
               <ol>
                 <li>
                   If the current price is above the moving averages and the
@@ -510,7 +522,7 @@ layout = go.Layout(
                 /></span>
               </div>
 
-              <h5>AMZN Candle Stick Results:</h5>
+              <h3>AMZN Candle Stick Results:</h3>
               <ol>
                 <li>
                   There was a significant price drop around November 2022,
@@ -528,7 +540,7 @@ layout = go.Layout(
                 </li>
               </ol>
 
-              <h5>Actionable Insight:</h5>
+              <h3>Actionable Insight:</h3>
               <ol>
                 <li>
                   The upward trend in both the 10-day and 20-day moving averages
@@ -540,7 +552,7 @@ layout = go.Layout(
                 </li>
               </ol>
 
-              <h5>Recommendations:</h5>
+              <h3>Recommendations:</h3>
               <ol>
                 <li>
                   If you are considering a short to medium-term investment and
@@ -638,7 +650,7 @@ layout = go.Layout(
                   ><img src="images/01-TSLA.png" alt=""
                 /></span>
               </div>
-              <h5>TSLA Candle Stick Results:</h5>
+              <h3>TSLA Candle Stick Results:</h3>
               <ol>
                 <li>
                   There was a significant downtrend until around the beginning
@@ -659,7 +671,7 @@ layout = go.Layout(
                 </li>
               </ol>
 
-              <h5>Actionable Insight:</h5>
+              <h3>Actionable Insight:</h3>
               <ol>
                 <li>
                   The crossover of the price above the 10-day and 20-day moving
@@ -673,7 +685,7 @@ layout = go.Layout(
                 </li>
               </ol>
 
-              <h5>Recommendations:</h5>
+              <h3>Recommendations:</h3>
               <ol>
                 <li>
                   Monitor the stock for stability above the 20-day moving
